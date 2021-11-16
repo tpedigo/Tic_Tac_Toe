@@ -44,6 +44,30 @@ class Gameboard < GameSquare
             end
         end
     end
+
+    def check_board
+        if @gameboard[0] != " "
+            if (@gameboard[0].play == @gameboard[1].play && @gameboard[1].play == @gameboard[2].play) || (@gameboard[0].play == @gameboard[3].play && @gameboard[3].play == @gameboard[6].play) || (@gameboard[0].play == @gameboard[4].play && @gameboard[4].play == @gameboard[8].play)
+                puts "Winner! #{@gameboard[0].play} got 3 in a row."
+            end
+        elsif @gameboard[1] != " "
+            if (@gameboard[1].play == @gameboard[4].play && @gameboard[4].play == @gameboard[7].play)
+                puts "Winner! #{@gameboard[4].play} got 3 in a row."
+            end
+        elsif @gameboard[2] != " "
+            if (@gameboard[2].play == @gameboard[5].play && @gameboard[5].play == @gameboard[8].play) (@gameboard[2].play == @gameboard[4].play && @gameboard[4].play == @gameboard[6].play)
+                puts "Winner! #{@gameboard[2].play} got 3 in a row."
+            end
+        elsif @gameboard[3] != " "
+            if (@gameboard[3].play == @gameboard[4].play && @gameboard[4].play == @gameboard[5].play)
+                puts "Winner! #{@gameboard[3].play} got 3 in a row."
+            end
+        elsif @gameboard[6] != " "
+            if (@gameboard[6].play == @gameboard[7].play && @gameboard[7].play == @gameboard[8].play)
+                puts "Winner! #{@gameboard[6].play} got 3 in a row."
+            end
+        end
+    end
 end
 
 game_board = Gameboard.new()
