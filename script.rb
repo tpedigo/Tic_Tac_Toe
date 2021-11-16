@@ -1,9 +1,27 @@
 module TicTacToe
     def player_choice
-        print "Choose square number: "
-        position = gets.chomp
-        print "Choose X or O: "
-        letter = gets.chomp
+        choosing = true
+        while choosing
+            print "Choose square number: "
+            position = gets.chomp
+            if ["0", "1", "2", "3", "4", "5", "6", "7", "8"].include?(position)
+                choosing = false
+            else
+                puts "Not a valid input. Please select number 0 through 8."
+                choosing = true
+            end
+        end
+        choosing = true
+        while choosing
+            print "Choose X or O: "
+            letter = gets.chomp
+            if letter.upcase == "X" || letter.upcase == "O"
+                choosing = false
+            else
+                puts "Not a valid input. Please enter X or O."
+                choosing = true
+            end
+        end
         [position, letter]
     end
 end
@@ -40,7 +58,7 @@ class Gameboard < GameSquare
         letter = current_choice[1]
         for i in 0..8 do
             if i.to_s == position
-                @gameboard[i].play = letter
+                @gameboard[i].play = letter.upcase
             end
         end
     end
