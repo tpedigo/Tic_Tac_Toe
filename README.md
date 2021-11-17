@@ -1,1 +1,1 @@
-First project creating and using homemade classes in Ruby.
+First project creating and using homemade classes in Ruby.  Results in a game of tic-tac-toe that can be played from the command line.
